@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+   <children>
+      <ImageView fitHeight="478.0" fitWidth="717.0" layoutX="-19.0" layoutY="-39.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../playerimages/61bc307e5cffb.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="305.0" fitWidth="210.0" layoutX="201.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../playerimages/ef60d5965644c4465b2d0179286151dc.jpg" />
+         </image>
+      </ImageView>
+      <Text fill="#f4f74e" layoutX="261.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Classic Mode">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fill="#f6ff4e" layoutX="210.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Color And Name" textAlignment="CENTER">
+         <font>
+            <Font name="Bodoni MT Black" size="15.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="202.0" fitWidth="173.0" layoutX="221.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../playerimages/transparent-image-blur-transparent-blur-for-video-11562955923gdgdm3v5dq.png" />
+         </image>
+      </ImageView>
+      <Circle fill="#0f84f2" layoutX="265.0" layoutY="128.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#52ff1f" layoutX="265.0" layoutY="162.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <TextField fx:id="tf1" layoutX="281.0" layoutY="115.0" prefHeight="13.0" prefWidth="104.0" promptText="Player1" />
+      <TextField fx:id="tf2" layoutX="281.0" layoutY="150.0" prefHeight="26.0" prefWidth="104.0" promptText="Player2" />
+      <Circle fill="#ff4c1f" layoutX="265.0" layoutY="208.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#dff741" layoutX="265.0" layoutY="241.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <TextField fx:id="tf3" layoutX="281.0" layoutY="195.0" prefHeight="13.0" prefWidth="104.0" promptText="Player1" />
+      <TextField fx:id="tf4" layoutX="281.0" layoutY="228.0" prefHeight="13.0" prefWidth="104.0" promptText="Player2" />
+      <Button layoutX="224.0" layoutY="291.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="50.0" text="2P" textAlignment="CENTER" />
+      <Button layoutX="282.0" layoutY="292.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="50.0" text="3P" textAlignment="CENTER" />
+      <Button layoutX="342.0" layoutY="292.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="50.0" text="4P" textAlignment="CENTER" />
+      <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="207.0" layoutY="343.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="207.0" layoutY="343.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="38.0" style="-fx-background-color: blue ;" />
+      <Button fx:id="Play" layoutX="341.0" layoutY="343.0" mnemonicParsing="false" onAction="#play" text="PLAY">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="211.0" layoutY="343.0">
+         <image>
+            <Image url="@../../../playerimages/icons8-undo-16.png" />
+         </image>
+      </ImageView>
+      <RadioButton fx:id="btn1" layoutX="233.0" layoutY="132.0" mnemonicParsing="false" onAction="#radio">
+         <toggleGroup>
+            <ToggleGroup fx:id="tgrp" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="btn2" layoutX="233.0" layoutY="215.0" mnemonicParsing="false" onAction="#radio" toggleGroup="$tgrp" />
+   </children>
+</AnchorPane>
