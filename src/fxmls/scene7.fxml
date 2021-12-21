@@ -28,14 +28,14 @@
                   <Glow level="0.66" />
                </effect>
             </Button>
-            <Label fx:id="winner" layoutX="633.0" layoutY="399.0" prefHeight="54.0" prefWidth="105.0" textFill="#efeaea">
+            <Label fx:id="winner" layoutX="633.0" layoutY="399.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="120.0" textFill="#efeaea">
                <font>
-                  <Font name="Berlin Sans FB" size="48.0" />
+                  <Font name="Berlin Sans FB" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="loser" layoutX="876.0" layoutY="399.0" prefHeight="54.0" prefWidth="98.0" textFill="#efeaea">
+            <Label fx:id="loser" layoutX="876.0" layoutY="399.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="120.0" textFill="#efeaea">
                <font>
-                  <Font name="Berlin Sans FB" size="48.0" />
+                  <Font name="Berlin Sans FB" size="30.0" />
                </font>
             </Label>
          </children>

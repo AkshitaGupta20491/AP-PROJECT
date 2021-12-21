@@ -13,10 +13,10 @@
 
 <BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1487.0" styleClass="bodybg" stylesheets="@../../../images/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Scene2Controller">
    <top>
-      <AnchorPane fx:id="ap" prefHeight="448.0" prefWidth="1288.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="921.0" prefWidth="1553.0" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2e907" height="34.0" layoutX="-1.0" layoutY="5.0" stroke="#f2e707" strokeType="INSIDE" width="1539.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="34.0" layoutX="-6.0" layoutY="-3.0" strokeType="INSIDE" width="1549.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2e907" height="34.0" layoutX="-1.0" layoutY="5.0" stroke="#f2e707" strokeType="INSIDE" width="1579.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="34.0" layoutX="-6.0" layoutY="-3.0" strokeType="INSIDE" width="1617.0">
                <fill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>
@@ -81,8 +81,8 @@
    <bottom>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2e907" height="34.0" layoutX="46.0" layoutY="162.0" stroke="#f2e707" strokeType="INSIDE" width="1539.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="34.0" layoutX="41.0" layoutY="169.0" strokeType="INSIDE" width="1549.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2e907" height="34.0" layoutX="-2.0" layoutY="162.0" stroke="#f2e707" strokeType="INSIDE" width="1587.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="34.0" layoutX="-4.0" layoutY="169.0" strokeType="INSIDE" width="1594.0">
                <fill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>

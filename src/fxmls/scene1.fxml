@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="921.0" prefWidth="1553.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Scene1Controller">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="921.0" fitWidth="1559.0" layoutX="-1.0">
+               <image>
+                  <Image url="@../../../playerimages/2024267.jpg" />
+               </image>
+            </ImageView>
+            <VBox layoutX="413.0" prefHeight="922.0" prefWidth="862.0">
+               <children>
+                  <ImageView fitHeight="593.0" fitWidth="977.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" x="200.0">
+                     <image>
+                        <Image url="@../../../images/fres.png" />
+                     </image>
+                  </ImageView>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ProgressBar fx:id="progressbar" layoutX="25.0" layoutY="100.0" prefHeight="22.0" prefWidth="774.0" progress="0.0" styleClass="progressbar" stylesheets="@../../../images/style.css" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
