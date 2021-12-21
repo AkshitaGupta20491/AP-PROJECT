@@ -13,7 +13,7 @@
 
 <BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="855.0" prefWidth="1377.0" styleClass="bodybg" stylesheets="@../../../images/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Scene5Controller">
     <center>
-        <AnchorPane prefHeight="875.0" prefWidth="1382.0" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="912.0" prefWidth="1378.0" BorderPane.alignment="CENTER">
             <children>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00de1c" height="651.0" layoutX="451.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="649.0">
                     <effect>
@@ -52,11 +52,11 @@
                         <Glow level="0.61" />
                     </effect>
                 </ImageView>
-                <Label fx:id="text1" layoutX="653.0" layoutY="727.0" textFill="#fffbfb">
+                <Label fx:id="text1" contentDisplay="CENTER" layoutX="653.0" layoutY="727.0" textFill="#fffbfb">
                     <font>
                         <Font name="MS Outlook" size="22.0" />
                     </font></Label>
-                <Label fx:id="text2" layoutX="881.0" layoutY="726.0" textFill="WHITE">
+                <Label fx:id="text2" contentDisplay="CENTER" layoutX="881.0" layoutY="726.0" textFill="WHITE">
                     <font>
                         <Font name="MS Outlook" size="22.0" />
                     </font></Label>
@@ -89,16 +89,34 @@
                         <DropShadow />
                     </effect>
                 </ImageView>
-            <ImageView fx:id="jumpingarrow" fitHeight="80.0" fitWidth="79.0" layoutX="742.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="44.0" fitWidth="35.0" layoutX="457.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="jumpingarrow" fitHeight="80.0" fitWidth="79.0" layoutX="742.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true" />
+                <ImageView fx:id="glow1" fitHeight="241.0" fitWidth="415.0" layoutX="394.0" layoutY="667.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../images/transbg.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="glow2" fitHeight="241.0" fitWidth="415.0" layoutX="675.0" layoutY="667.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../images/transbg.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="diceimage" fitHeight="49.0" fitWidth="53.0" layoutX="757.0" layoutY="715.0" onMouseClicked="#diceroll" pickOnBounds="true" preserveRatio="true" styleClass="diceimage">
+                    <image>
+                        <Image url="@../../../playerimages/dice6.png" />
+                    </image></ImageView>
+                <ImageView fitHeight="65.0" fitWidth="190.0" layoutX="907.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../images/changes.png" />
+                    </image>
+                    <effect>
+                        <ColorAdjust />
+                    </effect>
+                </ImageView>
+            <ImageView fitHeight="51.0" fitWidth="34.0" layoutX="457.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/flaggg.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="diceimage" fitHeight="49.0" fitWidth="53.0" layoutX="757.0" layoutY="715.0" onMouseClicked="#diceroll" pickOnBounds="true" preserveRatio="true" styleClass="diceimage">
-               <image>
-                  <Image url="@../../../playerimages/dice6.png" />
-               </image></ImageView>
             </children>
         </AnchorPane>
     </center>
