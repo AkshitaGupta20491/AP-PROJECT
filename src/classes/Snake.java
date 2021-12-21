@@ -1,6 +1,8 @@
 package com.example.demo;
 
-public class Snake {
+import java.io.Serializable;
+
+public class Snake implements Serializable {
     private final Box end;
     private final Box start;
 

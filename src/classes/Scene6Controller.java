@@ -15,7 +15,7 @@ public class Scene6Controller {
     private Button okay;
 
     @FXML
-    void Exit6(ActionEvent event) throws IOException {
+    void Exit6(ActionEvent event) throws IOException, ClassNotFoundException {
         Game.exit6();
     }
 

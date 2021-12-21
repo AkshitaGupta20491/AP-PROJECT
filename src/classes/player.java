@@ -2,9 +2,10 @@ package com.example.demo;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class player{
+public class player implements Serializable {
 //    private final int id;
     private final String name;
     private boolean isstart;

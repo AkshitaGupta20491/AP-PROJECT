@@ -33,6 +33,7 @@ public class Scene2Controller {
 
     @FXML
     public void Startgame(ActionEvent actionEvent) throws IOException {
+        GamePlay.reset();
         Game.startgame();
     }
 

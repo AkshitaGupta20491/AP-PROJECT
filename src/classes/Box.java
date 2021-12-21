@@ -1,6 +1,8 @@
 package com.example.demo;
 
-public class Box {
+import java.io.Serializable;
+
+public class Box implements Serializable {
     private  double x;
     private  double y;
     private final int number;

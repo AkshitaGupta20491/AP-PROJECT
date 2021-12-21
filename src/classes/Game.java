@@ -9,25 +9,25 @@ import javafx.stage.Stage;
 import java.util.*;
 import java.io.*;
 
-class threading extends Thread{
-    ProgressBar p;
-    threading(ProgressBar p){
-        this.p = p;
-    }
-    /*public void run()  {
-
-        double prog = p.getProgress();
-        while(prog<=1){
-            p.setProgress(prog+=0.00001);
-            prog = p.getProgress();
-            try {
-                TimeUnit.MILLISECONDS.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }*/
-}
+//class threading extends Thread{
+//    ProgressBar p;
+//    threading(ProgressBar p){
+//        this.p = p;
+//    }
+//    /*public void run()  {
+//
+//        double prog = p.getProgress();
+//        while(prog<=1){
+//            p.setProgress(prog+=0.00001);
+//            prog = p.getProgress();
+//            try {
+//                TimeUnit.MILLISECONDS.sleep(100);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }*/
+//}
 
 public class Game extends Application {
 
@@ -39,6 +39,7 @@ public class Game extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene3.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         mainstage.setScene(scene);
+
 
 
     }
@@ -63,12 +64,46 @@ public class Game extends Application {
         mainstage.setScene(scene);
     }
     public static void exit5()throws IOException{
+        try{
+            FileOutputStream fout = new FileOutputStream("p1.txt");
+            ObjectOutputStream out = new ObjectOutputStream(fout);
+            out.writeObject(GamePlay.getPlayer1());
+            out.flush();
+            out.close();
+            FileOutputStream fout2 = new FileOutputStream("p2.txt");
+            ObjectOutputStream out2 = new ObjectOutputStream(fout2);
+            out2.writeObject(GamePlay.getPlayer2());
+            out2.flush();
+            out2.close();
+            FileOutputStream fout3 = new FileOutputStream("turn.txt");
+            ObjectOutputStream out3 = new ObjectOutputStream(fout3);
+            out3.write(GamePlay.getTurn());
+            out3.flush();
+            out3.close();
+        }catch(Exception e){
+            System.out.println(e);
+        }
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene6.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         mainstage.setScene(scene);
     }
-    public static void exit6()throws IOException{
+    public static void exit6() throws IOException, ClassNotFoundException {
+        ObjectInputStream in1 = new ObjectInputStream(new FileInputStream("p1.txt"));
+        player p1 = (player)in1.readObject();
+        in1.close();
+        ObjectInputStream in2 = new ObjectInputStream(new FileInputStream("p2.txt"));
+        player p2 = (player)in2.readObject();
+        in2.close();
+        ObjectInputStream in3 = new ObjectInputStream(new FileInputStream("turn.txt"));
+        int newturn = (int)in3.read();
+        in3.close();
+
+
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene3.fxml"));
+        GamePlay.setPlayer1(p1);
+        GamePlay.setPlayer2(p2);
+        GamePlay.setTurn(newturn);
         Scene scene = new Scene(fxmlLoader.load());
         mainstage.setScene(scene);
     }
@@ -90,17 +125,28 @@ public class Game extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         mainstage.setScene(scene);
     }
+    public static void winner(Parent root) throws IOException{
+        System.out.println("from winnerr!");
+        //   FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene5.fxml"));
+//        fxmlLoader.setController("Scene3Controller.java");
+        Scene scene = new Scene(root);
+        mainstage.setScene(scene);
+    }
 
 
     @Override
     public void start(Stage stage) throws Exception {
         mainstage=stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene3.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene1.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle("Snake&Ladders");
         stage.setScene(scene);
+
+//        exit3();
+
 //        stage.setMaximized(true);//stage.setFullScreen(true);
         stage.show();
+
      /*   Scene scene1,scene2,scene3,scene4, scene5, scene6;
 
         //Scene 1 start

@@ -7,10 +7,11 @@ import javafx.scene.image.ImageView;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.lang.Math;
 import java.util.Random;
 
-public class Dice {
+public class Dice implements Serializable {
     int number;
 
     Button bt;

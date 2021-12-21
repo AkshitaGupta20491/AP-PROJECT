@@ -1,9 +1,7 @@
 package com.example.demo;
 
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,7 +32,7 @@ interface snakeLaddersetup{
 }
 
 class Board1 implements snakeLaddersetup{
-         public void Snakeset(){
+    public void Snakeset(){
         Snake s1 = new Snake(GamePlay.allBoxes.get(35),GamePlay.allBoxes.get(2));
         GamePlay.allBoxes.get(35).setStatus(-1);
         GamePlay.allBoxes.get(35).setSpcno(0);
@@ -43,13 +41,15 @@ class Board1 implements snakeLaddersetup{
         GamePlay.allBoxes.get(28).setStatus(-1);
         GamePlay.allBoxes.get(28).setSpcno(1);
 
-        Snake s3 = new Snake(GamePlay.allBoxes.get(45),GamePlay.allBoxes.get(34));
-        GamePlay.allBoxes.get(45).setStatus(-1);
-        GamePlay.allBoxes.get(45).setSpcno(2);
 
         Snake s4 = new Snake(GamePlay.allBoxes.get(61),GamePlay.allBoxes.get(21));
         GamePlay.allBoxes.get(61).setStatus(-1);
-        GamePlay.allBoxes.get(61).setSpcno(3);
+        GamePlay.allBoxes.get(61).setSpcno(2);
+
+        Snake s3 = new Snake(GamePlay.allBoxes.get(45),GamePlay.allBoxes.get(34));
+        GamePlay.allBoxes.get(45).setStatus(-1);
+        GamePlay.allBoxes.get(45).setSpcno(3);
+
 
         Snake s5 = new Snake(GamePlay.allBoxes.get(97),GamePlay.allBoxes.get(44));
         GamePlay.allBoxes.get(97).setStatus(-1);
@@ -81,10 +81,10 @@ class Board1 implements snakeLaddersetup{
         Ladder l5 = new Ladder(GamePlay.allBoxes.get(64),GamePlay.allBoxes.get(43));
         GamePlay.allBoxes.get(43).setStatus(1);
         GamePlay.allBoxes.get(43).setSpcno(4);
-        Ladder l7 = new Ladder(GamePlay.allBoxes.get(86),GamePlay.allBoxes.get(50));
+        Ladder l6 = new Ladder(GamePlay.allBoxes.get(86),GamePlay.allBoxes.get(50));
         GamePlay.allBoxes.get(50).setStatus(1);
         GamePlay.allBoxes.get(50).setSpcno(5);
-        Ladder l6 = new Ladder(GamePlay.allBoxes.get(81),GamePlay.allBoxes.get(62));
+        Ladder l7 = new Ladder(GamePlay.allBoxes.get(81),GamePlay.allBoxes.get(62));
         GamePlay.allBoxes.get(62).setStatus(1);
         GamePlay.allBoxes.get(62).setSpcno(6);
         Ladder l8 = new Ladder(GamePlay.allBoxes.get(96),GamePlay.allBoxes.get(75));
@@ -97,12 +97,11 @@ class Board1 implements snakeLaddersetup{
 
     }
 
-
 }
 
 
 
-public class GamePlay{
+public class GamePlay {
 
     public static ArrayList<Box> allBoxes=new ArrayList();
     private static player player1;
@@ -114,6 +113,7 @@ public class GamePlay{
     public static Scene7Controller staticcontroller7;
     public static int diceno = 6;
     private static int turn = 1;
+    public static int winner=0;
 
 
 
@@ -355,7 +355,7 @@ public class GamePlay{
 //        }
         if(turn==1){
             //p1 translation
-            System.out.println("turn1");
+            System.out.println("turn1 diceout "+player1.getDiceout());
             if(player1.getStart()==false){
                 System.out.println("x of p1: "+player1.getPawn().getPawniv().getLayoutX()+" "+"y of p2: "+player1.getPawn().getPawniv().getLayoutY());
                 System.out.println("hi from player1getstart");
@@ -374,52 +374,67 @@ public class GamePlay{
 
 //                    tt.setToX((player1.getPawn().getPosition().getX())+(allBoxes.get(0).getX()));
 //                    tt.setToY(player1.getPawn().getPosition().getY()-(allBoxes.get(0).getY()));
+
+
                     tt.setToX((allBoxes.get(0).getX()));
                     tt.setToY(-(allBoxes.get(0).getY()));
+
+
 
                     System.out.println("x1: "+(allBoxes.get(0).getX())+" "+"y1: "+(allBoxes.get(0).getY()));
 
 
 
-                    tt.setDuration(Duration.millis(500));
+                    tt.setDuration(Duration.millis(1000));
                     tt.setNode(player1.getPawn().getPawniv());
                     tt.play();
 //                    player1.getPawn().getPawniv().setX((allBoxes.get(0).getX()));
 //                    player1.getPawn().getPawniv().setY(-(allBoxes.get(0).getY()));
                     System.out.println("Hello from playgametranslate");
 
-
+                    p1counter+=1;
                 }
             }else{
                 if(p1counter+ player1.getDiceout()<=100){
-                    TranslateTransition tt = new TranslateTransition();
+//                    TranslateTransition tt = new TranslateTransition();
 //                tt.setToX(player1.getPawn().getPawniv().getX()+66);
 //                tt.setToY(player1.getPawn().getPawniv().getY()-0);
-//                    for(int i=1;i<=player1.getDiceout();i++){
+                    for(int i=1;i<=player1.getDiceout();i++){
+                        TranslateTransition tt = new TranslateTransition();
 //                        System.out.println("Hello p1 "+i);
-                        tt.setToX(allBoxes.get(p1counter+ player1.getDiceout()).getX());
-                        tt.setToY(-allBoxes.get(p1counter+ player1.getDiceout()).getY());
-                        tt.setDuration(Duration.millis(500));
-                        tt.setNode(player1.getPawn().getPawniv());
-                        tt.play();
-//                        tt.setToX(allBoxes.get(p1counter+ i).getX());
-//                        tt.setToY(-allBoxes.get(p1counter+ i).getY());
+//                        tt.setToX(allBoxes.get(p1counter+ player1.getDiceout()).getX());
+//                        tt.setToY(-allBoxes.get(p1counter+ player1.getDiceout()).getY());
 //                        tt.setDuration(Duration.millis(500));
 //                        tt.setNode(player1.getPawn().getPawniv());
 //                        tt.play();
+                        tt.setToX(allBoxes.get(p1counter+ i-1).getX());
+                        tt.setToY(-allBoxes.get(p1counter+ i-1).getY());
+                        tt.setDuration(Duration.millis(1000));
+                        tt.setNode(player1.getPawn().getPawniv());
+//                        PauseTransition pt = new PauseTransition(Duration.millis(1000));
+//                        pt.play();
+//                        SequentialTransition seqTransition = new SequentialTransition (
+//                                new PauseTransition(Duration.millis(1000)),
+//                                tt
+//                        );
+//                        seqTransition.play();
+                        tt.play();
 
 
 
 
-//                    }
-                    p1counter+= player1.getDiceout();
+
+                    }
+
 
 
 //                    System.out.println("dice no more than 1");
-
+                    p1counter+= player1.getDiceout();
                 }
-                if(allBoxes.get(p1counter).getStatus()!=0){
-                    checksnakeorladder(p1counter,1);
+
+                System.out.println("from here p1 counterrrrrr "+p1counter);
+                if(allBoxes.get(p1counter-1).getStatus()!=0){
+                    checksnakeorladder(p1counter-1,1);
 //                    TranslateTransition tt2 = new TranslateTransition();
 //                    if(allBoxes.get(p1counter).getStatus()==1){
 
@@ -446,14 +461,17 @@ public class GamePlay{
 
 
                 }
+                System.out.println("after updation p1 counterrr is "+p1counter);
                 if(p1counter==100) {
-                    declarewinner(2);
+                    winner=1;
+                    Thread.currentThread().stop();
+                    //declarewinner(1);
                 }
 
             }
             turn = 2;
         }else if(turn ==2){
-            System.out.println("turn2");
+            System.out.println("turn2 dicout "+player2.getDiceout());
             //p2 translation
             if(player2.getStart()==false){
                 System.out.println("hi from player2getstart");
@@ -467,6 +485,9 @@ public class GamePlay{
 
                     tt.setToX(allBoxes.get(0).getX()-40);
                     tt.setToY(-(allBoxes.get(0).getY()));
+
+//                    tt.setToX(allBoxes.get(86).getX()-40);
+//                    tt.setToY(-allBoxes.get(86).getY());
                     System.out.println("x2: "+(allBoxes.get(0).getX())+" "+"y2: "+(allBoxes.get(0).getY()));
 //
 //                    tt.setToX(player1.getPawn().getPawniv().getX()-10);
@@ -476,42 +497,53 @@ public class GamePlay{
 //                    player2.getPawn().getPawniv().setY(player2.getPawn().getPawniv().getY()-90);
 
 
-                    tt.setDuration(Duration.millis(500));
+                    tt.setDuration(Duration.millis(1000));
                     tt.setNode(player2.getPawn().getPawniv());
                     tt.play();
+                    p2counter+=1;
 
                 }
             }else{
                 if(p2counter+ player2.getDiceout()<=100){
-                    TranslateTransition tt = new TranslateTransition();
+
 //                tt.setToX(player1.getPawn().getPawniv().getX()+66);
 //                tt.setToY(player1.getPawn().getPawniv().getY()-0);
-//                    for(int i=1;i<=player2.getDiceout();i++) {
+                    for(int i=1;i<=player2.getDiceout();i++) {
+                        TranslateTransition tt = new TranslateTransition();
 //                        System.out.println("Hello p2 "+i);
 
-                        tt.setToX(allBoxes.get(p2counter+ player2.getDiceout()).getX() - 40);
-                        tt.setToY(-allBoxes.get(p2counter+ player2.getDiceout()).getY());
-
-                        tt.setDuration(Duration.millis(500));
-                        tt.setNode(player2.getPawn().getPawniv());
-                        tt.play();
-//                        tt.setToX(allBoxes.get(p2counter+ i).getX() - 40);
-//                        tt.setToY(-allBoxes.get(p2counter+ i).getY());
+//                        tt.setToX(allBoxes.get(p2counter+ player2.getDiceout()).getX() - 40);
+//                        tt.setToY(-allBoxes.get(p2counter+ player2.getDiceout()).getY());
 //
 //                        tt.setDuration(Duration.millis(500));
 //                        tt.setNode(player2.getPawn().getPawniv());
 //                        tt.play();
+                        tt.setToX(allBoxes.get(p2counter+ i-1).getX() - 40);
+                        tt.setToY(-allBoxes.get(p2counter+ i-1).getY());
+
+                        tt.setDuration(Duration.millis(1000));
+                        tt.setNode(player2.getPawn().getPawniv());
+//                        SequentialTransition seqTransition = new SequentialTransition (
+//                                new PauseTransition(Duration.millis(1000)),
+//                                tt
+//                        );
+//                        seqTransition.play();
+
+                        tt.play();
 
 
-//                    }
+                    }
                     p2counter+= player2.getDiceout();
 
+                }
 
+
+                    System.out.println("p2 counetr form herrrrre "+p2counter);
 
 //                    System.out.println("dice no more than 1");
-                }
-                if(allBoxes.get(p2counter).getStatus()!=0){
-                    checksnakeorladder(p2counter,2);
+
+                if(allBoxes.get(p2counter-1).getStatus()!=0){
+                    checksnakeorladder(p2counter-1,2);
 //                    TranslateTransition tt2 = new TranslateTransition();
 //                    if(allBoxes.get(p2counter).getStatus()==1){
 //                        tt2.setToX(ladders.get(allBoxes.get(p2counter).getSpcno()).getEnd().getX()-40);
@@ -534,66 +566,73 @@ public class GamePlay{
 //
 //                    }
                 }
+                System.out.println("after updation p1 counterrr is "+p1counter);
                 if(p2counter==100){
-                declarewinner(2);
+                    winner=2;
+                    Thread.currentThread().stop();
+
+               // declarewinner(2);
+            }
             }
             turn =1;
         }
-    }}
+          //  System.out.println("p1counter: "+p1counter+" "+"p2counter"+p2counter);
+    }
     public static void checksnakeorladder(int counter,int flag){
         TranslateTransition tt2 = new TranslateTransition();
         if(allBoxes.get(counter).getStatus()==1){
             if(flag==1){
-                tt2.setToX(ladders.get(allBoxes.get(p1counter).getSpcno()).getEnd().getX());
-                tt2.setToY(-ladders.get(allBoxes.get(p1counter).getSpcno()).getEnd().getY());
+                tt2.setToX(ladders.get(allBoxes.get(counter).getSpcno()).getEnd().getX());
+                tt2.setToY(-ladders.get(allBoxes.get(counter).getSpcno()).getEnd().getY());
 
-                tt2.setDuration(Duration.millis(500));
+                tt2.setDuration(Duration.millis(1000));
                 tt2.setNode(player1.getPawn().getPawniv());
                 tt2.play();
 //                System.out.println("Set to x: "+ladders.get(allBoxes.get(p1counter).getSpcno()).getEnd().getX());
 //                System.out.println("set to y: "+(-ladders.get(allBoxes.get(p1counter).getSpcno()).getEnd().getY()));
-                p1counter = allBoxes.indexOf(ladders.get(allBoxes.get(p1counter).getSpcno()).getEnd());
+                p1counter = allBoxes.indexOf(ladders.get(allBoxes.get(counter).getSpcno()).getEnd())+1;
             }
             else if(flag==2){
                 tt2.setToX(ladders.get(allBoxes.get(counter).getSpcno()).getEnd().getX()-40);
                 tt2.setToY(-ladders.get(allBoxes.get(counter).getSpcno()).getEnd().getY());
-                tt2.setDuration(Duration.millis(500));
+                tt2.setDuration(Duration.millis(1000));
                 tt2.setNode(player2.getPawn().getPawniv());
                 tt2.play();
 //            System.out.println("Set to x: "+(ladders.get(allBoxes.get(p2counter).getSpcno()).getEnd().getX()-40));
 //            System.out.println("set to y: "+(-ladders.get(allBoxes.get(p2counter).getSpcno()).getEnd().getY()));
-                p2counter = allBoxes.indexOf(ladders.get(allBoxes.get(p2counter).getSpcno()).getEnd());
+                p2counter = allBoxes.indexOf(ladders.get(allBoxes.get(counter).getSpcno()).getEnd())+1;
             }
 
         }else if(allBoxes.get(counter).getStatus()==-1){
             if(flag==1){
-                tt2.setToX(snakes.get(allBoxes.get(p1counter).getSpcno()).getStart().getX());
-                tt2.setToY(-snakes.get(allBoxes.get(p1counter).getSpcno()).getStart().getY());
-                tt2.setDuration(Duration.millis(500));
+                tt2.setToX(snakes.get(allBoxes.get(counter).getSpcno()).getStart().getX());
+                tt2.setToY(-snakes.get(allBoxes.get(counter).getSpcno()).getStart().getY());
+                tt2.setDuration(Duration.millis(1000));
                 tt2.setNode(player1.getPawn().getPawniv());
                 tt2.play();
 //                System.out.println("Set to x: "+snakes.get(allBoxes.get(p1counter).getSpcno()).getEnd().getX());
 //                System.out.println("set to y: "+(-snakes.get(allBoxes.get(p1counter).getSpcno()).getEnd().getY()));
-                p1counter = allBoxes.indexOf(snakes.get(allBoxes.get(p1counter).getSpcno()).getStart());
+                p1counter = allBoxes.indexOf(snakes.get(allBoxes.get(counter).getSpcno()).getStart())+1;
 
             }else if(flag==2){
-                tt2.setToX(snakes.get(allBoxes.get(p2counter).getSpcno()).getStart().getX()-40);
-                tt2.setToY(-snakes.get(allBoxes.get(p2counter).getSpcno()).getStart().getY());
-                tt2.setDuration(Duration.millis(500));
+                tt2.setToX(snakes.get(allBoxes.get(counter).getSpcno()).getStart().getX()-40);
+                tt2.setToY(-snakes.get(allBoxes.get(counter).getSpcno()).getStart().getY());
+                tt2.setDuration(Duration.millis(1000));
                 tt2.setNode(player2.getPawn().getPawniv());
                 tt2.play();
 //                System.out.println("Set to x: "+(snakes.get(allBoxes.get(p2counter).getSpcno()).getEnd().getX()-40));
 //                System.out.println("set to y: "+(-snakes.get(allBoxes.get(p2counter).getSpcno()).getEnd().getY()));
-                p2counter = allBoxes.indexOf(snakes.get(allBoxes.get(p2counter).getSpcno()).getStart()) ;
+                p2counter = allBoxes.indexOf(snakes.get(allBoxes.get(counter).getSpcno()).getStart())+1 ;
             }
 
 
         }
+        //System.out.println("p1counter: "+p1counter+" "+"p2counter"+p2counter);
     }
 
 
     public static void declarewinner(int n) throws IOException {
-        FXMLLoader loader=new FXMLLoader(GamePlay.class.getResource("scene7.fxml"));
+        FXMLLoader loader=new FXMLLoader(HelloApplication.class.getResource("scene7.fxml"));
         Parent root=(Parent)loader.load();
         Scene7Controller controller=loader.getController();
         staticcontroller7 = controller;
@@ -604,16 +643,18 @@ public class GamePlay{
             controller.setwinnerloser(player2.getName(), player1.getName());
         }
 //        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene7.fxml"));
-        Scene scene = new Scene(root);
-        Game.mainstage.setScene(scene);
+
+        Game.winner(root);
     }
 
-    public static void newdiceanimation() throws InterruptedException {
+    public static void newdiceanimation() throws InterruptedException,IOException {
         ImageView diceImage = staticcontroller.getdiceimage();
+        Scene5Controller.startstopjumpingarrow(false);
 
         Random rd= new Random();
         final int[] n = new int[1];
         Thread thread = new Thread(){
+//            thread.setDaemon(true);
             public void run(){
                 System.out.println("Thread Running");
 
@@ -644,6 +685,7 @@ public class GamePlay{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                Scene5Controller.startstopjumpingarrow(true);
                 if(turn==1){
                     Bloom glow = new Bloom(0.9);
 
@@ -664,6 +706,7 @@ public class GamePlay{
 //                    rollButton.setDisable(false);
             }
 
+
         };
 //        diceImage.setX(759);
 //        diceImage.setY(717);
@@ -672,11 +715,15 @@ public class GamePlay{
 
 
         thread.start();
+        if(winner!=0){
+            GamePlay.declarewinner(winner);
+        }
+
 //        while(thread.isAlive()){
 //            System.out.println("hello from while");
 //
 //        }
-        staticcontroller.startstopdiceanimation(true);
+       // staticcontroller.startstopdiceanimation(true);
 
 
 
@@ -720,5 +767,11 @@ public class GamePlay{
 
         return iv;
 
+    }
+
+    public static void reset(){
+        p1counter = 0;
+        p2counter= 0;
+        winner = 0;
     }
 }

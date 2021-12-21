@@ -168,7 +168,7 @@ public class HelloController implements Initializable {
 ////        Game.settings();
 ////    }
 
-    public void Exit(ActionEvent actionEvent) throws IOException {
+    public void Exit(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         if (actionEvent.getSource() == exit2) {
             Game.exit2();
         } else if (actionEvent.getSource() == exit4) {

@@ -12,7 +12,7 @@ import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 
 public class Scene5Controller {
-    
+
     public ImageView bigpawn2;
     public ImageView bigpawn1;
     public ImageView smallpawn2;
@@ -26,7 +26,7 @@ public class Scene5Controller {
     private ImageView diceimage;
 
     @FXML
-    private ImageView jumpingarrow;
+    private static ImageView jumpingarrow;
 
     @FXML
     private Label text2;
@@ -67,8 +67,9 @@ public class Scene5Controller {
 //        groupSetter(GamePlay.diceanimation());
 //        setonborderpane();
 //        group.getChildren().clear();
-        startstopjumpingarrow(false);
+//        startstopjumpingarrow(false);
         GamePlay.newdiceanimation();
+       //startstopjumpingarrow(true);
 
 
 
@@ -108,15 +109,15 @@ public class Scene5Controller {
         return bigpawn1;
     }
 
-    public void startstopjumpingarrow(Boolean b){
-        System.out.println("Hello from startstop");
+    public static void startstopjumpingarrow(Boolean b){
+        System.out.println("Hello from startstop "+b);
         jumpingarrow.setVisible(b);
     }
 
 
-    public void startstopdiceanimation(Boolean b){
-        diceimage.setVisible(b);
-    }
+//    public void startstopdiceanimation(Boolean b){
+//        diceimage.setVisible(b);
+//    }
 
 
 

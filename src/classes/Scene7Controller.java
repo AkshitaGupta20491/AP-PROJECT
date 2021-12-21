@@ -28,6 +28,7 @@ public class Scene7Controller {
 
     @FXML
     void Replay(ActionEvent event) throws IOException {
+        GamePlay.reset();
         Game.replay();
     }
 
