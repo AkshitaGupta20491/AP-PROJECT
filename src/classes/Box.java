@@ -5,8 +5,17 @@ public class Box {
     private  double y;
     private final int number;
     private  int status;  // 0: empty 1:ladder -1:snake
+    private int spcno;
 
-    public Box(double xx,double yy, int n){
+    public int getSpcno() {
+        return spcno;
+    }
+
+    public void setSpcno(int spcno) {
+        this.spcno = spcno;
+    }
+
+    public Box(double xx, double yy, int n){
         this.x=xx;
         this.y=yy;
         this.number=n;

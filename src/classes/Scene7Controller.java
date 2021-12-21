@@ -31,4 +31,7 @@ public class Scene7Controller {
         Game.replay();
     }
 
+    void setwinnerloser(String s1, String s2){
+        winner.setText(s1);loser.setText(s2);
+    }
 }

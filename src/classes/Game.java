@@ -72,11 +72,11 @@ public class Game extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         mainstage.setScene(scene);
     }
-    public static  void exit7()throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene2.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        mainstage.setScene(scene);
-    }
+//    public static  void exit7()throws IOException{
+//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene2.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load());
+//        mainstage.setScene(scene);
+//    }
     public static void play(Parent root)throws IOException{
         System.out.println("from play!");
      //   FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene5.fxml"));
@@ -85,7 +85,7 @@ public class Game extends Application {
         mainstage.setScene(scene);
     }
     public static void replay()throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene4.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene3.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
         mainstage.setScene(scene);

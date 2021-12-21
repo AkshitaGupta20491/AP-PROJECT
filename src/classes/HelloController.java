@@ -178,7 +178,7 @@ public class HelloController implements Initializable {
         } else if (actionEvent.getSource() == Okay) {
             Game.exit6();
         } else if (actionEvent.getSource() == Menu) {
-            Game.exit7();
+//            Game.exit7();
         }
     }
 

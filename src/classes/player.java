@@ -8,6 +8,15 @@ public class player{
 //    private final int id;
     private final String name;
     private boolean isstart;
+    private int diceout;
+
+    public int getDiceout() {
+        return diceout;
+    }
+
+    public void setDiceout(int diceout) {
+        this.diceout = diceout;
+    }
 
     public void setIsstart(boolean isstart) {
         this.isstart = isstart;
@@ -23,7 +32,7 @@ public class player{
 //        this.name = name;
 //
 //    }
-    public player(String s, Boolean b,Pawn p){
+    public player(String s, boolean b,Pawn p){
 //        this.id=n;
         this.name=s;
         isstart = b;

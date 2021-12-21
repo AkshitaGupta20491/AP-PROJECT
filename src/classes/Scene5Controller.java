@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.sun.javafx.sg.prism.NGNode;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
@@ -16,6 +17,8 @@ public class Scene5Controller {
     public ImageView bigpawn1;
     public ImageView smallpawn2;
     public ImageView smallpawn1;
+    public ImageView glow1;
+    public ImageView glow2;
     @FXML
     private Label text1;
 
@@ -66,7 +69,7 @@ public class Scene5Controller {
 //        group.getChildren().clear();
         startstopjumpingarrow(false);
         GamePlay.newdiceanimation();
-        GamePlay.playgame();
+
 
 
 
