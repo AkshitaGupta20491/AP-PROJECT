@@ -69,7 +69,7 @@ public class Scene3Controller implements Initializable{
             if (tf1.getText().trim().isEmpty() || tf2.getText().trim().isEmpty()) {
 
 
-                GamePlay.launchGame(im1,im2,1,"Player1","Player2");
+                GamePlay.launchGame(im1,im2,"Player1","Player2");
             } else {
                 System.out.println("Hello from el");
                 System.out.println(tf1.getText()+" "+tf2.getText());
@@ -77,7 +77,7 @@ public class Scene3Controller implements Initializable{
 
 
 //                controller.setValues(tf1.getText(),tf2.getText());
-                GamePlay.launchGame(im1,im2,1,tf1.getText(),tf2.getText());
+                GamePlay.launchGame(im1,im2,tf1.getText(),tf2.getText());
 
 
 
@@ -87,10 +87,10 @@ public class Scene3Controller implements Initializable{
             Image im1 = new Image(new FileInputStream("C:\\Users\\krish\\IdeaProjects\\demo\\src\\main\\resources\\images\\redPawn.png"));
             Image im2 = new Image(new FileInputStream("C:\\Users\\krish\\IdeaProjects\\demo\\src\\main\\resources\\images\\yellowPawn.png"));
             if (tf3.getText().trim().isEmpty() || tf4.getText().trim().isEmpty()) {
-                GamePlay.launchGame(im1,im2,1,"Player1","Player2");
+                GamePlay.launchGame(im1,im2,"Player1","Player2");
             } else {
 
-                GamePlay.launchGame(im1,im2,1,tf3.getText(),tf4.getText());
+                GamePlay.launchGame(im1,im2,tf3.getText(),tf4.getText());
 //                GamePlay.launchGame(tf3,tf4,dicebtn,pawnImagered,pawnImageyellow);
             }
         }

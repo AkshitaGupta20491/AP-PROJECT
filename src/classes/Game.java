@@ -67,12 +67,12 @@ public class Game extends Application {
         try{
             FileOutputStream fout = new FileOutputStream("p1.txt");
             ObjectOutputStream out = new ObjectOutputStream(fout);
-            out.writeObject(GamePlay.getPlayer1());
+            out.write(GamePlay.p1counter);
             out.flush();
             out.close();
             FileOutputStream fout2 = new FileOutputStream("p2.txt");
             ObjectOutputStream out2 = new ObjectOutputStream(fout2);
-            out2.writeObject(GamePlay.getPlayer2());
+            out2.write(GamePlay.p2counter);
             out2.flush();
             out2.close();
             FileOutputStream fout3 = new FileOutputStream("turn.txt");
@@ -89,23 +89,45 @@ public class Game extends Application {
     }
     public static void exit6() throws IOException, ClassNotFoundException {
         ObjectInputStream in1 = new ObjectInputStream(new FileInputStream("p1.txt"));
-        player p1 = (player)in1.readObject();
+//        player p1 = (player)in1.readObject();
+        int prevp1counter = in1.read();
+
+        System.out.println("p1counter: "+in1.read());
         in1.close();
         ObjectInputStream in2 = new ObjectInputStream(new FileInputStream("p2.txt"));
-        player p2 = (player)in2.readObject();
+//        player p2 = (player)in2.readObject();
+        int prevp2counter = in2.read();
+        System.out.println("p2counter: "+in2.read());
         in2.close();
         ObjectInputStream in3 = new ObjectInputStream(new FileInputStream("turn.txt"));
         int newturn = (int)in3.read();
+        System.out.println("prev turn: "+newturn);
         in3.close();
 
 
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene3.fxml"));
-        GamePlay.setPlayer1(p1);
-        GamePlay.setPlayer2(p2);
-        GamePlay.setTurn(newturn);
-        Scene scene = new Scene(fxmlLoader.load());
-        mainstage.setScene(scene);
+//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene5.fxml"));
+//        if(prevp1counter==0){
+////            GamePlay.getPlayer1().getPawn().getPawniv().setLayoutX(GamePlay.allBoxes.get(prevp1counter).getX());
+////            GamePlay.getPlayer1().getPawn().getPawniv().setLayoutX(GamePlay.allBoxes.get(prevp1counter).getY());
+//        }else{
+//            GamePlay.getPlayer1().getPawn().getPawniv().setLayoutX(GamePlay.allBoxes.get(prevp1counter-1).getX());
+//            GamePlay.getPlayer1().getPawn().getPawniv().setLayoutX(GamePlay.allBoxes.get(prevp1counter-1).getY());
+//        }
+//
+//        if(prevp2counter!=0){
+//            GamePlay.getPlayer2().getPawn().getPawniv().setLayoutX(GamePlay.allBoxes.get(prevp2counter-1).getX());
+//            GamePlay.getPlayer2().getPawn().getPawniv().setLayoutX(GamePlay.allBoxes.get(prevp2counter-1).getY());
+//        }
+
+
+//        GamePlay.setTurn(newturn);
+        GamePlay.savelaunchGame(prevp1counter,prevp2counter,newturn);
+//        GamePlay.setPlayer1(p1);
+//        GamePlay.setPlayer2(p2);
+//        GamePlay.setTurn(newturn);
+//        Scene scene = new Scene(fxmlLoader.load());
+//        mainstage.setScene(scene);
     }
 //    public static  void exit7()throws IOException{
 //        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene2.fxml"));

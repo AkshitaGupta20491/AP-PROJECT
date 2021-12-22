@@ -17,6 +17,8 @@ import javafx.scene.effect.Shadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Polyline;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.util.Duration;
@@ -42,11 +44,11 @@ class Board1 implements snakeLaddersetup{
         GamePlay.allBoxes.get(28).setSpcno(1);
 
 
-        Snake s4 = new Snake(GamePlay.allBoxes.get(61),GamePlay.allBoxes.get(21));
+        Snake s3 = new Snake(GamePlay.allBoxes.get(61),GamePlay.allBoxes.get(21));
         GamePlay.allBoxes.get(61).setStatus(-1);
         GamePlay.allBoxes.get(61).setSpcno(2);
 
-        Snake s3 = new Snake(GamePlay.allBoxes.get(45),GamePlay.allBoxes.get(34));
+        Snake s4 = new Snake(GamePlay.allBoxes.get(45),GamePlay.allBoxes.get(34));
         GamePlay.allBoxes.get(45).setStatus(-1);
         GamePlay.allBoxes.get(45).setSpcno(3);
 
@@ -99,6 +101,72 @@ class Board1 implements snakeLaddersetup{
 
 }
 
+class Board2 implements snakeLaddersetup{
+    public void Snakeset(){
+        Snake s1 = new Snake(GamePlay.allBoxes.get(11),GamePlay.allBoxes.get(8));
+        GamePlay.allBoxes.get(12).setStatus(-1);
+        GamePlay.allBoxes.get(12).setSpcno(0);
+
+        Snake s2 = new Snake(GamePlay.allBoxes.get(44),GamePlay.allBoxes.get(15));
+        GamePlay.allBoxes.get(44).setStatus(-1);
+        GamePlay.allBoxes.get(44).setSpcno(1);
+
+
+        Snake s3 = new Snake(GamePlay.allBoxes.get(39),GamePlay.allBoxes.get(19));
+        GamePlay.allBoxes.get(39).setStatus(-1);
+        GamePlay.allBoxes.get(39).setSpcno(2);
+
+        Snake s4 = new Snake(GamePlay.allBoxes.get(68),GamePlay.allBoxes.get(48));
+        GamePlay.allBoxes.get(68).setStatus(-1);
+        GamePlay.allBoxes.get(68).setSpcno(3);
+
+
+        Snake s5 = new Snake(GamePlay.allBoxes.get(94),GamePlay.allBoxes.get(54));
+        GamePlay.allBoxes.get(94).setStatus(-1);
+        GamePlay.allBoxes.get(94).setSpcno(4);
+
+        Snake s6 = new Snake(GamePlay.allBoxes.get(78),GamePlay.allBoxes.get(58));
+        GamePlay.allBoxes.get(78).setStatus(-1);
+        GamePlay.allBoxes.get(78).setSpcno(5);
+
+
+        GamePlay.snakes.add(s1);GamePlay.snakes.add(s2);GamePlay.snakes.add(s3);GamePlay.snakes.add(s4);GamePlay.snakes.add(s5);GamePlay.snakes.add(s6);
+    }
+    public void ladderset(){
+        Ladder l1 = new Ladder(GamePlay.allBoxes.get(45),GamePlay.allBoxes.get(5));
+        GamePlay.allBoxes.get(5).setStatus(1);
+        GamePlay.allBoxes.get(5).setSpcno(0);
+        Ladder l2 = new Ladder(GamePlay.allBoxes.get(29),GamePlay.allBoxes.get(9));
+        GamePlay.allBoxes.get(9).setStatus(1);
+        GamePlay.allBoxes.get(9).setSpcno(1);
+        Ladder l3 = new Ladder(GamePlay.allBoxes.get(42),GamePlay.allBoxes.get(22));
+        GamePlay.allBoxes.get(22).setStatus(1);
+        GamePlay.allBoxes.get(22).setSpcno(2);
+
+        Ladder l4 = new Ladder(GamePlay.allBoxes.get(67),GamePlay.allBoxes.get(27));
+        GamePlay.allBoxes.get(27).setStatus(1);
+        GamePlay.allBoxes.get(27).setSpcno(3);
+        Ladder l5 = new Ladder(GamePlay.allBoxes.get(80),GamePlay.allBoxes.get(40));
+        GamePlay.allBoxes.get(40).setStatus(1);
+        GamePlay.allBoxes.get(40).setSpcno(4);
+        Ladder l6 = new Ladder(GamePlay.allBoxes.get(76),GamePlay.allBoxes.get(43));
+        GamePlay.allBoxes.get(43).setStatus(1);
+        GamePlay.allBoxes.get(43).setSpcno(5);
+        Ladder l7 = new Ladder(GamePlay.allBoxes.get(92),GamePlay.allBoxes.get(72));
+        GamePlay.allBoxes.get(72).setStatus(1);
+        GamePlay.allBoxes.get(72).setSpcno(6);
+        Ladder l8 = new Ladder(GamePlay.allBoxes.get(97),GamePlay.allBoxes.get(77));
+        GamePlay.allBoxes.get(77).setStatus(1);
+        GamePlay.allBoxes.get(77).setSpcno(7);
+
+        GamePlay.ladders.add(l1);GamePlay.ladders.add(l2);GamePlay.ladders.add(l3);GamePlay.ladders.add(l4);GamePlay.ladders.add(l5);GamePlay.ladders.add(l6);GamePlay.ladders.add(l7);GamePlay.ladders.add(l8);
+
+    }
+
+}
+
+
+
 
 
 public class GamePlay {
@@ -114,6 +182,7 @@ public class GamePlay {
     public static int diceno = 6;
     private static int turn = 1;
     public static int winner=0;
+    public static int board=0;
 
 
 
@@ -144,7 +213,72 @@ public class GamePlay {
         GamePlay.turn = turn;
     }
 
-    public static void launchGame (Image im1, Image im2, int board, String s1, String s2) throws IOException {
+    public static void savelaunchGame (int p1counter,int p2counter,int turn) throws IOException {
+        FXMLLoader loader=new FXMLLoader(GamePlay.class.getResource("scene5.fxml"));
+        Parent root=(Parent)loader.load();
+        Scene5Controller controller=loader.getController();
+        staticcontroller = controller;
+//        controller.setValues(s1,s2);
+
+        // animations (dice and arrow)
+        controller.jumpingarrowset(GamePlay.arrowanimation());
+        controller.setonimageview();
+
+
+
+
+
+
+        // animation ends
+//        ImageView iv1 = new ImageView(im1);
+//        ImageView iv2 = new ImageView(im2);
+
+//        controller.setpawnimages(im1,im2);
+        GamePlay.BoxSet();
+        if(board%2==0){
+            Board1 b1 = new Board1();
+            b1.ladderset();
+            b1.Snakeset();
+Image imm=new Image(new FileInputStream("C:\\Users\\krish\\IdeaProjects\\demo\\src\\main\\resources\\images\\changes.png"));
+controller.editview.setImage(imm);controller.editview.setVisible(true);
+            Image im=new Image(new FileInputStream("C:\\Users\\krish\\IdeaProjects\\demo\\src\\main\\resources\\images\\snl.png"));
+            controller.board.setImage(im);
+            board++;
+
+        }else{
+            Board2 b2=new Board2();
+            b2.ladderset();
+            b2.Snakeset();
+            controller.editview.setVisible(false);
+            Image im=new Image(new FileInputStream("C:\\Users\\krish\\IdeaProjects\\demo\\src\\main\\resources\\images\\board2.png"));
+            controller.board.setImage(im);
+            board++;
+        }
+//        player1 = new player(s1,false,new Pawn(allBoxes.get(100),staticcontroller.bigpawn1));
+//        player2 = new player(s2,false,new Pawn(allBoxes.get(101),staticcontroller.bigpawn2));
+        if(p1counter==0){
+//            GamePlay.getPlayer1().getPawn().getPawniv().setLayoutX(GamePlay.allBoxes.get(prevp1counter).getX());
+//            GamePlay.getPlayer1().getPawn().getPawniv().setLayoutX(GamePlay.allBoxes.get(prevp1counter).getY());
+        }else{
+            GamePlay.getPlayer1().getPawn().getPawniv().setLayoutX(GamePlay.allBoxes.get(p1counter-1).getX());
+            GamePlay.getPlayer1().getPawn().getPawniv().setLayoutX(GamePlay.allBoxes.get(p1counter-1).getY());
+        }
+
+        if(p2counter!=0){
+            GamePlay.getPlayer2().getPawn().getPawniv().setLayoutX(GamePlay.allBoxes.get(p2counter-1).getX());
+            GamePlay.getPlayer2().getPawn().getPawniv().setLayoutX(GamePlay.allBoxes.get(p2counter-1).getY());
+        }
+
+
+        GamePlay.setTurn(turn);
+
+
+
+        Game.play(root);
+//        dice = new Dice(dicebtn);
+
+    }
+    public static void launchGame (Image im1, Image im2,  String s1, String s2) throws IOException {
         FXMLLoader loader=new FXMLLoader(GamePlay.class.getResource("scene5.fxml"));
         Parent root=(Parent)loader.load();
         Scene5Controller controller=loader.getController();
@@ -166,13 +300,24 @@ public class GamePlay {
 
         controller.setpawnimages(im1,im2);
         GamePlay.BoxSet();
-        if(board==1){
+        if(board%2==1){
             Board1 b1 = new Board1();
             b1.ladderset();
             b1.Snakeset();
+            Image imm=new Image(new FileInputStream("C:\\Users\\krish\\IdeaProjects\\demo\\src\\main\\resources\\images\\changes.png"));
+            controller.editview.setImage(imm);controller.editview.setVisible(true);
+            Image im=new Image(new FileInputStream("C:\\Users\\krish\\IdeaProjects\\demo\\src\\main\\resources\\images\\snl.png"));
+            controller.board.setImage(im);
+            board++;
 
         }else{
-
+            Board2 b2=new Board2();
+            b2.ladderset();
+            b2.Snakeset();
+            controller.editview.setVisible(false);
+            Image im=new Image(new FileInputStream("C:\\Users\\krish\\IdeaProjects\\demo\\src\\main\\resources\\images\\board2.png"));
+            controller.board.setImage(im);
+            board++;
         }
         player1 = new player(s1,false,new Pawn(allBoxes.get(100),staticcontroller.bigpawn1));
         player2 = new player(s2,false,new Pawn(allBoxes.get(101),staticcontroller.bigpawn2));
@@ -182,6 +327,7 @@ public class GamePlay {
 //        dice = new Dice(dicebtn);
 
     }
+
 
     public static  void BoxSet(){
         int i=1;
@@ -375,10 +521,22 @@ public class GamePlay {
 //                    tt.setToX((player1.getPawn().getPosition().getX())+(allBoxes.get(0).getX()));
 //                    tt.setToY(player1.getPawn().getPosition().getY()-(allBoxes.get(0).getY()));
 
-
+//original code
                     tt.setToX((allBoxes.get(0).getX()));
                     tt.setToY(-(allBoxes.get(0).getY()));
+//orginal ends
 
+//                    Polyline pl = new Polyline();
+//                    pl.getPoints().addAll(new Double[]{
+//                            allBoxes.get(0).getX(),-allBoxes.get(0).getY(),
+//                            allBoxes.get(2).getX(),-allBoxes.get(2).getY(),
+//                            allBoxes.get(22).getX(),-allBoxes.get(22).getY()
+//                    });
+//                    PathTransition pt = new PathTransition();
+//                    pt.setNode(player1.getPawn().getPawniv());
+//                    pt.setDuration(Duration.millis(1000));
+//                    pt.setPath(pl);
+//                    pt.play();
 
 
                     System.out.println("x1: "+(allBoxes.get(0).getX())+" "+"y1: "+(allBoxes.get(0).getY()));
@@ -496,6 +654,18 @@ public class GamePlay {
 //                    player2.getPawn().getPawniv().setX((player2.getPawn().getPawniv().getX()+19));
 //                    player2.getPawn().getPawniv().setY(player2.getPawn().getPawniv().getY()-90);
 
+
+//                    Polyline pl = new Polyline();
+//                    pl.getPoints().addAll(new Double[]{
+//                            allBoxes.get(0).getX()-40,-allBoxes.get(0).getY(),
+//                            allBoxes.get(2).getX()-40,-allBoxes.get(2).getY(),
+//                            allBoxes.get(22).getX()-40,-allBoxes.get(22).getY()
+//                    });
+//                    PathTransition pt = new PathTransition();
+//                    pt.setNode(player2.getPawn().getPawniv());
+//                    pt.setDuration(Duration.millis(1000));
+//                    pt.setPath(pl);
+//                    pt.play();
 
                     tt.setDuration(Duration.millis(1000));
                     tt.setNode(player2.getPawn().getPawniv());
@@ -773,5 +943,8 @@ public class GamePlay {
         p1counter = 0;
         p2counter= 0;
         winner = 0;
+        snakes.clear();
+        ladders.clear();
+        allBoxes.clear();
     }
 }

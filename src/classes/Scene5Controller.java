@@ -31,6 +31,11 @@ public class Scene5Controller {
     @FXML
     private Label text2;
 
+    @FXML
+    public ImageView board;
+
+public ImageView editview;
+
 //    @FXML
 //    private Group group;
 
